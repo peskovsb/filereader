@@ -26,7 +26,11 @@ function getTpl($tpl){
 function setFile($file, $current,$newContent){
 	$current .= $newContent . "\n";
 
-	file_put_contents($file, $current);
+	if(file_put_contents($file, $current)){
+		echo '[200] Данные успешно записаны!';
+	}else{
+		echo '[500] Проблемы с записью данных!';
+	}
 }
 
 
